@@ -7,7 +7,7 @@ The app is designed for Indian learners and currently supports English, Hindi, T
 ## Live Project
 
 **https://osf-q6kb.onrender.com**
-(((open developer mode for full project overview )))
+(((((open developer mode for full project overview )))))
 
 ---
 
