@@ -1,6 +1,6 @@
-# STEMLearn
+# ZenithLearn
 
-STEMLearn is a MERN-stack, multilingual Python learning platform built for beginner-friendly STEM education. It combines adaptive practice, AI-generated explanations, daily challenges, gamified progression, leaderboards, avatars, guest access, developer testing mode, and an AI boss battle experience.
+ZenithLearn is a MERN-stack, multilingual Python learning platform built for beginner-friendly STEM education. It combines adaptive practice, AI-generated explanations, daily challenges, gamified progression, leaderboards, avatars, guest access, developer testing mode, and an AI boss battle experience.
 
 The app is designed for Indian learners and currently supports English, Hindi, Tamil, and Malayalam while keeping Python syntax, keywords, variable names, and code blocks in English.
 
@@ -40,7 +40,7 @@ The app is designed for Indian learners and currently supports English, Hindi, T
 
 ## Project Overview
 
-STEMLearn helps students learn Python through structured topics, personalized theory, adaptive questions, and feedback. The learning journey is built around 10 Python topics, each with 5 levels and increasing difficulty.
+ZenithLearn helps students learn Python through structured topics, personalized theory, adaptive questions, and feedback. The learning journey is built around 10 Python topics, each with 5 levels and increasing difficulty.
 
 The platform connects programming concepts with hobbies such as cricket, football, badminton, gaming, music, cooking, and art so the learner can understand Python through familiar real-world situations.
 
@@ -194,7 +194,7 @@ Recommended environment:
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/stemlearn
+MONGODB_URI=mongodb://localhost:27017/zenithlearn
 JWT_SECRET=replace_with_a_long_random_secret
 
 GROQ_KEY_1=your_theory_key
