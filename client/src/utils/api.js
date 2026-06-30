@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+const normalizeApiBase = (url) => {
+  const cleanUrl = String(url || 'https://osf-q6kb.onrender.com').replace(/\/+$/, '');
+  return cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+};
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: normalizeApiBase(import.meta.env.VITE_API_URL),
   timeout: 90000,
 });
 

@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://osf-q6kb.onrender.com/',
+        target: 'https://osf-q6kb.onrender.com',
         changeOrigin: true
       }
     }

@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express      = require('express')
 const cors         = require('cors')
+const path         = require('path')
+const fs           = require('fs')
 const connectDB    = require('./config/db')
 const errorHandler = require('./middleware/errorHandler')
 const startCronJobs = require('./cron/resetLeaderboard')
@@ -36,11 +38,19 @@ const startServer = async () => {
 
     app.get('/api/health', (req, res) => res.json({ status: 'ok', env: process.env.NODE_ENV || 'development' }))
 
+    const clientDist = path.join(__dirname, '..', 'client', 'dist')
+    if (fs.existsSync(clientDist)) {
+      app.use(express.static(clientDist))
+      app.get(/^\/(?!api).*/, (req, res) => {
+        res.sendFile(path.join(clientDist, 'index.html'))
+      })
+    }
+
     startCronJobs()
 
     app.use(errorHandler)
 
-    const PORT = process.env.PORT ||
+    const PORT = process.env.PORT || 5000
     app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`))
   } catch (err) {
     console.error('Server startup failed:', err.message)
