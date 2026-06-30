@@ -1,7 +1,19 @@
 import axios from 'axios';
 
+const LIVE_ORIGIN = 'https://osf-q6kb.onrender.com';
+
+const getRuntimeOrigin = () => {
+  if (typeof window === 'undefined') return LIVE_ORIGIN;
+  return window.location.origin || LIVE_ORIGIN;
+};
+
 const normalizeApiBase = (url) => {
-  const cleanUrl = String(url || 'https://osf-q6kb.onrender.com').replace(/\/+$/, '');
+  const rawUrl = String(url || getRuntimeOrigin()).trim();
+  const isRenderDeploy =
+    typeof window !== 'undefined' && window.location.hostname.endsWith('onrender.com');
+  const hasLocalApi =
+    /localhost|127\.0\.0\.1/i.test(rawUrl);
+  const cleanUrl = (isRenderDeploy && hasLocalApi ? getRuntimeOrigin() : rawUrl).replace(/\/+$/, '');
   return cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
 };
 

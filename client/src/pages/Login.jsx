@@ -12,7 +12,7 @@ import { t } from '../utils/i18n'
 
 const getAuthErrorMessage = (err) => {
   if (err.response?.data?.message) return err.response.data.message
-  if (err.code === 'ERR_NETWORK') return 'Cannot reach server. Make sure backend is running on port 5000.'
+  if (err.code === 'ERR_NETWORK') return 'Cannot reach the live server. Refresh once and try again.'
   return err.message || 'Login failed'
 }
 
